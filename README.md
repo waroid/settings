@@ -1,0 +1,2 @@
+# settings
+raspberry setting infomation
