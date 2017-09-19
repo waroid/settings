@@ -6,39 +6,21 @@
 # Include files from /etc/network/interfaces.d:
 source-directory /etc/network/interfaces.d
 
+#------------------------------
 auto lo
 iface lo inet loopback
 
-iface eth0 inet manual
-
-wireless-power off
+#------------------------------
+allow-hotplug wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface control inet dhcp
 
 #------------------------------
-#using hostapd udhcpd
-#------------------------------
-#allow-hotplug wlan0
-#iface wlan0 inet static
-#address 10.1.1.1
-#netmask 255.255.255.0
-
-#allow-hotplug wlan1
-#iface wlan1 inet manual
-#wpa-ssid rhaon510_2.4G
-#wpa-psk 12345678
-
-#up iptables-restore < /etc/iptables.ipv4.nat
-#------------------------------
-
-#------------------------------
-#not using hostapd udhcpd
-#------------------------------
-#allow-hotplug wlan0
-#iface wlan0 inet static
-#wpa-ssid waroid-5g
-#wpa-psk 12345678
-#address 192.168.1.100
-#netmask 255.255.255.0
-#gateway 192.168.1.1
-#------------------------------
-
-
+allow-hotplug wlan1
+iface wlan1 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+iface robot inet static
+address 192.168.1.200
+netmask 255.255.255.0
+gateway 192.168.1.1

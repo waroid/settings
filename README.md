@@ -14,9 +14,14 @@
 	- sudo apt-get update
 	- sudo apt-get upgrade
 	- sudo apt-get install git
-	- mkdir Work & cd Work
+	- mkdir Work && cd Work
 	- git clone https://github.com/waroid/settings.git
 	
-3. wifi update
-	- sudo vi /etc/wpa_supplicant/wpa_supplicant.conf
-	- sudo vi /etc/network/interfalces
+4. update config
+	- cd settings/0
+	- sudo cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
+	- sudo cp etc/network/interfaces /etc/network/interfaces
+	- sudo cp etc/rc.local /etc/rc.local
+	
+5. set bluetooth
+	
