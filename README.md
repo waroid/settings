@@ -1,13 +1,14 @@
-
+﻿
 1. dhcpcd5 제거
 	- sudo apt-get remove dhcpcd5
 	
 2. wifi 세팅
-	- sudo vi /etc/wpa_supplicant/wpa_supplicant.conf
-		network={
-			ssid="waroid-2.4g"
-			psk="12345678"
-		}
+	- sudo vi /etc/network/interfaces
+		allow-hotplug wlan0
+		iface wlan0 inet dhcp
+		wpa_ssid waroid-2.4g
+		wpa-psk 12345678
+		
 	- sudo reboot
 	
 3. update and upgrade
@@ -22,6 +23,7 @@
 	- sudo cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
 	- sudo cp etc/network/interfaces /etc/network/interfaces
 	- sudo cp etc/rc.local /etc/rc.local
+	- sudo reboot
 	
 5. set bluetooth
 	
