@@ -26,4 +26,14 @@
 	- sudo reboot
 	
 5. set bluetooth
+	- sudo cp etc/systemd/system/bluetooth.target.wants/bluetooth.service /etc/systemd/system/bluetooth.target.wants/bluetooth.service
+	- sudo cp etc/systemd/system/rfcomm.service /etc/systemd/system/rfcomm.service
+	- sudo reboot
 	
+	- sudo bluetoothctl
+	- agent on
+	- default-agent
+	- discoverable on
+	- scan on
+	- pair C0:33:5E:34:7D:FA
+	- trust C0:33:5E:34:7D:FA
