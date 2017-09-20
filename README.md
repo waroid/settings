@@ -19,13 +19,21 @@
 	- git clone https://github.com/waroid/settings.git
 	
 4. update config
-	- cd settings/0
+	- cd Work/settings/0
 	- sudo cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
 	- sudo cp etc/network/interfaces /etc/network/interfaces
 	- sudo cp etc/rc.local /etc/rc.local
 	- sudo reboot
 	
-5. set bluetooth
+5. wifi driver(NEXT 510AC mini)
+	- cd Work
+	- wget http://www.fars-robotics.net/8812au-4.9.41-1023.tar.gz
+	- tar xzf 8812au-4.9.41-1023.tar.gz
+	- ./install.sh
+
+	
+#set bluetooth
+	- cd Work/settings/0
 	- sudo cp etc/systemd/system/bluetooth.target.wants/bluetooth.service /etc/systemd/system/bluetooth.target.wants/bluetooth.service
 	- sudo cp etc/systemd/system/rfcomm.service /etc/systemd/system/rfcomm.service
 	- sudo reboot
@@ -37,3 +45,14 @@
 	- scan on
 	- pair C0:33:5E:34:7D:FA
 	- trust C0:33:5E:34:7D:FA
+	
+#camera test
+	- cd Work
+	- git clone https://github.com/waroid/CameraTestServer.git
+	- cd CameraTestServer
+	- make
+	- sudo make install
+	- sudo vi /etc/rc.local
+		=> using camera test server
+	- sudo vi /etc/network/interfaces
+		=> disable control(wlan0)
