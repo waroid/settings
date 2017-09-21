@@ -26,14 +26,14 @@
 	-[A] git clone https://github.com/waroid/settings.git
 	
 4. update config
-	- cd Work/settings/0
-	- sudo cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
-	- sudo cp etc/network/interfaces /etc/network/interfaces
-	- sudo cp etc/rc.local /etc/rc.local
-	- sudo reboot
+	-[0] cd Work/settings/0
+	-[2] cd Work/settings/2
+	-[A] chmod +x updateconfig.sh
+	-[A] ./updateconfig.sh
+	-[A] sudo reboot
 
 * dhcpcd 충돌
-	-[0] sudo apt-get remove dhcpcd5
+	-[A] sudo apt-get remove dhcpcd5
 	
 
 * set NEXT 510AC mini driver
