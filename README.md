@@ -1,22 +1,29 @@
 ﻿
-1. dhcpcd5 제거
-	- sudo apt-get remove dhcpcd5
+1. start config
+	-[A] sudo raspi-config
+		Hostname -> DEV or DEV-2
+		Boot Options -> Desktop / CLI -> Console Autologin
+		Localisation Options -> Change Timezone -> Asia -> Seoul
+		Localisation Options -> Change Keyboard Layout -> Generic 105-key (Intl) PC -> Other -> Korean -> Korean - Korean (101/104 key compatible) - The default for the keyboard layout -> No compose key
+		Interfacing Options -> Camera -> Yes
+		Interfacing Options -> SSH -> Yes
+		Advanced Options -> Expand Filesystem
 	
-2. wifi 세팅
-	- sudo vi /etc/network/interfaces
+2. internet setting
+	-[0] sudo vi /etc/network/interfaces
 		allow-hotplug wlan0
 		iface wlan0 inet dhcp
 		wpa_ssid waroid-2.4g
 		wpa-psk 12345678
 		
-	- sudo reboot
+	-[A] sudo reboot
 	
 3. update and upgrade
-	- sudo apt-get update
-	- sudo apt-get upgrade
-	- sudo apt-get install git
-	- mkdir Work && cd Work
-	- git clone https://github.com/waroid/settings.git
+	-[A] sudo apt-get update
+	-[A] sudo apt-get upgrade
+	-[A] sudo apt-get install git
+	-[A] mkdir Work && cd Work
+	-[A] git clone https://github.com/waroid/settings.git
 	
 4. update config
 	- cd Work/settings/0
@@ -24,13 +31,17 @@
 	- sudo cp etc/network/interfaces /etc/network/interfaces
 	- sudo cp etc/rc.local /etc/rc.local
 	- sudo reboot
+
+* dhcpcd 충돌
+	-[0] sudo apt-get remove dhcpcd5
 	
-5. wifi driver(NEXT 510AC mini)
+
+* set NEXT 510AC mini driver
 	- cd Work
-	- wget http://www.fars-robotics.net/8812au-4.9.41-1023.tar.gz
+	- wget http://www.fars-robotics.net/8812au-4.9.41-1023.tar.gz [0]
+	- wget http://www.fars-robotics.net/8812au-4.9.41-v7-1023.tar.gz [2]
 	- tar xzf 8812au-4.9.41-1023.tar.gz
 	- ./install.sh
-
 	
 #set bluetooth
 	- cd Work/settings/0
