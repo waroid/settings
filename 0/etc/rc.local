@@ -21,8 +21,16 @@ fi
 # Start Camera Test Server
 #------------------------------
 #_CAMERA_TEST_DEV=0
-#printf "starting... camera test sever (dev:%d)\n" $_CAMERA_TEST_DEV
+#printf "starting... camera test server (dev:%d)\n" $_CAMERA_TEST_DEV
 #/usr/local/bin/CameraTestServer $_CAMERA_TEST_DEV &
+#------------------------------
+
+#------------------------------
+# Start New Waroid Server
+#------------------------------
+#_NEW_WAROID_SERVER_DEV=0
+#printf "starting... new waroid server (dev:%d)\n" $_NEW_WAROID_SERVER_DEV
+#/usr/local/bin/NewWaroidServer $_NEW_WAROID_SERVER_DEV &
 #------------------------------
 
 exit 0
