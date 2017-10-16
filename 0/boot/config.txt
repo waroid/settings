@@ -57,3 +57,6 @@ dtoverlay=pwm-2chan,pin=18,func=2,pin2=13,func2=4
 dtparam=audio=on
 start_x=1
 gpu_mem=128
+
+# Enable UART
+enable_uart=1
