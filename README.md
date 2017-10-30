@@ -21,14 +21,13 @@
 	
 3. update and upgrade
 	-[A] sudo apt-get update
-	-[A] sudo apt-get upgrade
-	-[A] sudo apt-get install git wiringpi
+	-[A] sudo apt-get upgradecpp
+	-[A] sudo apt-get install git wiringpi libasound2 libasound2-dev libsndfile1 libsndfile1-dev rapidjson-dev
 	-[A] mkdir Work && cd Work
 	-[A] git clone https://github.com/waroid/settings.git
 
 4. update config
 	-[0] cd Work/settings/0
-	-[2] cd Work/settings/2
 	-[A] sudo cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
 	-[A] sudo cp etc/network/interfaces /etc/network/interfaces
 	-[A] sudo cp etc/rc.local /etc/rc.local
