@@ -7,6 +7,7 @@
 		Localisation Options -> Change Keyboard Layout -> Generic 105-key (Intl) PC -> Other -> Korean -> Korean - Korean (101/104 key compatible) - The default for the keyboard layout -> No compose key
 		Interfacing Options -> Camera -> Yes
 		Interfacing Options -> SSH -> Yes
+		Interfacing Options -> Serial -> No -> Yes
 		Advanced Options -> Expand Filesystem
 		Advanced Options -> Audio -> Force 3.5mm
 	
@@ -21,8 +22,8 @@
 	
 3. update and upgrade
 	-[A] sudo apt-get update
-	-[A] sudo apt-get upgradecpp
-	-[A] sudo apt-get install git wiringpi libasound2 libasound2-dev libsndfile1 libsndfile1-dev rapidjson-dev
+	-[A] sudo apt-get upgrade
+	-[A] sudo apt-get install git syslog-ng wiringpi libasound2 libasound2-dev libsndfile1 libsndfile1-dev
 	-[A] mkdir Work && cd Work
 	-[A] git clone https://github.com/waroid/settings.git
 
@@ -43,13 +44,21 @@
 	-[A] gpio -v
 	-[A] gpio readall
 	
+# syslog
+	-[A] sudo apt-get install syslog-ng
+	-[A] sudo touch /var/log/waroid.log
+	-[0] cd Work/settings/0
+	-[A] sudo cp etc/syslog-ng/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
+	-[A] sudo systemctl restart syslog-ng.service
+	
 # dhcpcd 충돌
 	-[A] dpkg -l | grep dhcp
-	-[A] sudo apt-get remove dhcpcd5
+	-[A] sudo apt-get autoremove dhcpcd5
 	
 # set NEXT 510AC mini driver
 	-[A] cd Work/settings/driver
 	-[0] tar xzf 8812au-4.9.41-1023.tar.gz (download: wget http://www.fars-robotics.net/8812au-4.9.41-1023.tar.gz)
+	-[0] tar xzf 8812au-4.9.41-1023.tar.gz (download: wget http://www.fars-robotics.net/8812au-4.9.59-1047.tar.gz)
 	-[2] tar xzf 8812au-4.9.41-v7-1023.tar.gz (download: wget http://www.fars-robotics.net/8812au-4.9.41-v7-1023.tar.gz)
 	-[A] ./install.sh
 	-[A] sudo reboot
