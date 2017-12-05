@@ -21,25 +21,21 @@ fi
 # Start New Waroid Server
 #------------------------------
 _START_NEW_WAROID_SERVER=0
-if test $_START_NEW_WAROID_SERVER -eq 1
+if [ $_START_NEW_WAROID_SERVER -eq 1 ]
 then
 	_ROBOT_ID=0
 	_ROBOT_TYPE="CRAB"
 	_GAME_SERVER="192.168.1.201"
 	_DEV=0
 	_TEST=0
-
 	printf "starting... new waroid server\n" $_NEW_WAROID_SERVER_DEV
 	printf "robot id = %d\n" $_ROBOT_ID
 	printf "robot type = %s\n" $_ROBOT_TYPE
 	printf "game server = %s\n" $_GAME_SERVER
 	printf "dev = %d, test=%d\n" $_DEV $_TEST
 
-	/usr/local/bin/NewWaroidServer $_ROBOT_ID $_ROBOT_TYPE $_GAME_SERVER $_DEV $_TEST
-else
-	
+	sudo /usr/local/bin/NewWaroidServer $_ROBOT_ID $_ROBOT_TYPE $_GAME_SERVER $_DEV $_TEST &
 fi
-
 #------------------------------
 
 exit 0
