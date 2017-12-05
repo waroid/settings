@@ -23,7 +23,7 @@
 3. update and upgrade
 	-[A] sudo apt-get update
 	-[A] sudo apt-get upgrade
-	-[A] sudo apt-get install git syslog-ng wiringpi libasound2 libasound2-dev libsndfile1 libsndfile1-dev
+	-[A] sudo apt-get install git wiringpi libasound2 libasound2-dev libsndfile1 libsndfile1-dev libttspico-utils
 	-[A] mkdir Work && cd Work
 	-[A] git clone https://github.com/waroid/settings.git
 
@@ -103,3 +103,7 @@
 		=> using new waroid server
 	-[A] sudo vi /etc/network/interfaces
 		=> disable control(wlan0)
+		
+# python serial
+	- [A] sudo apt-get install python-serial
+	

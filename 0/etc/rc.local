@@ -18,19 +18,28 @@ if [ "$_IP" ]; then
 fi
 
 #------------------------------
-# Start Camera Test Server
-#------------------------------
-#_CAMERA_TEST_DEV=0
-#printf "starting... camera test server (dev:%d)\n" $_CAMERA_TEST_DEV
-#/usr/local/bin/CameraTestServer $_CAMERA_TEST_DEV &
-#------------------------------
-
-#------------------------------
 # Start New Waroid Server
 #------------------------------
-#_NEW_WAROID_SERVER_DEV=0
-#printf "starting... new waroid server (dev:%d)\n" $_NEW_WAROID_SERVER_DEV
-#/usr/local/bin/NewWaroidServer $_NEW_WAROID_SERVER_DEV &
+_START_NEW_WAROID_SERVER=0
+if test $_START_NEW_WAROID_SERVER -eq 1
+then
+	_ROBOT_ID=0
+	_ROBOT_TYPE="CRAB"
+	_GAME_SERVER="192.168.1.201"
+	_DEV=0
+	_TEST=0
+
+	printf "starting... new waroid server\n" $_NEW_WAROID_SERVER_DEV
+	printf "robot id = %d\n" $_ROBOT_ID
+	printf "robot type = %s\n" $_ROBOT_TYPE
+	printf "game server = %s\n" $_GAME_SERVER
+	printf "dev = %d, test=%d\n" $_DEV $_TEST
+
+	/usr/local/bin/NewWaroidServer $_ROBOT_ID $_ROBOT_TYPE $_GAME_SERVER $_DEV $_TEST
+else
+	
+fi
+
 #------------------------------
 
 exit 0
