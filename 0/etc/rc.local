@@ -35,7 +35,7 @@ then
 	printf "game server = %s\n" $_GAME_SERVER
 	printf "dev = %d, test=%d\n" $_DEV $_TEST
 
-	/usr/local/bin/NewWaroidServer $_ROBOT_ID $_ROBOT_TYPE $_GAME_SERVER $_DEV $_TEST
+	sudo /usr/local/bin/NewWaroidServer $_ROBOT_ID $_ROBOT_TYPE $_GAME_SERVER $_DEV $_TEST
 else
 	
 fi
