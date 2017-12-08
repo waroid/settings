@@ -35,8 +35,6 @@ then
 	printf "dev = %d\n" $_DEV
 
 	sudo /usr/local/bin/NewWaroidServer $_ROBOT_ID $_ROBOT_TYPE $_GAME_SERVER $_DEV &
-else
-	
 fi
 
 #------------------------------
