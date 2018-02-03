@@ -9,21 +9,51 @@ source-directory /etc/network/interfaces.d
 #------------------------------
 auto lo
 iface lo inet loopback
+#------------------------------
 
 #------------------------------
-allow-hotplug wlan0
-iface wlan0 inet manual
-wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
-iface control inet static
-address 192.168.1.100
-netmask 255.255.255.0
-gateway 192.168.1.1
+#allow-hotplug eth0
+#iface eth0 inet dhcp
+#------------------------------
 
 #------------------------------
-allow-hotplug wlan1
-iface wlan1 inet manual
-wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
-iface robot inet static
-address 192.168.1.200
-netmask 255.255.255.0
-gateway 192.168.1.1
+# Sation mode
+#------------------------------
+#allow-hotplug wlan0
+#iface wlan0 inet manual
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+#iface control inet dhcp
+#iface control inet static
+#address 192.168.1.210
+#netmask 255.255.255.0
+#gateway 192.168.1.1
+#------------------------------
+#allow-hotplug wlan1
+#iface wlan1 inet manual
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+#iface robot inet dhcp
+#iface robot inet static
+#address 192.168.1.220
+#netmask 255.255.255.0
+#gateway 192.168.1.1
+#------------------------------
+
+#------------------------------
+# AP mode
+#------------------------------
+#allow-hotplug wlan0
+#iface wlan0 inet manual
+#wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+#iface control inet dhcp
+#iface control inet static
+#address 192.168.1.210
+#netmask 255.255.255.0
+#gateway 192.168.1.1
+#------------------------------
+#allow-hotplug wlan1
+#iface wlan1 inet static
+#address 10.1.1.1
+#netmask 255.255.255.0
+#------------------------------
+#up iptables-restore < /etc/network/iptables.ipv4.nat
+#------------------------------
