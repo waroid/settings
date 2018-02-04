@@ -18,6 +18,18 @@ if [ "$_IP" ]; then
 fi
 
 #------------------------------
+# Start Wifi Mode 
+# 0: station 1: ap
+#------------------------------
+_WIFI_MODE=0
+if test $_WIFI_MODE -eq 0
+then
+	printf "staring... station mode\n"
+else
+	printf "staring... ap mode\n"
+fi
+
+#------------------------------
 # Start New Waroid Server
 #------------------------------
 _START_NEW_WAROID_SERVER=0
