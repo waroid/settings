@@ -28,11 +28,8 @@
 	-[A] git clone https://github.com/waroid/settings.git
 
 4. update config
-	-[0] cd Work/settings/0
-	-[A] sudo cp etc/wpa_supplicant/wpa_supplicant.conf /etc/wpa_supplicant/wpa_supplicant.conf
-	-[A] sudo cp etc/network/interfaces /etc/network/interfaces
-	-[A] sudo cp etc/rc.local /etc/rc.local
-	-[0] sudo cp boot/config.txt /boot/config.txt
+	-[A] cd Work/settings/script
+	-[A] sudo ./config.sh <station|ap>
 	-[A] sudo reboot
 	
 5. test
@@ -50,10 +47,6 @@
 	-[0] cd Work/settings/0
 	-[A] sudo cp etc/syslog-ng/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 	-[A] sudo systemctl restart syslog-ng.service
-	
-# dhcpcd 충돌
-	-[A] dpkg -l | grep dhcp
-	-[A] sudo apt-get autoremove dhcpcd5
 	
 # set NEXT 510AC mini driver
 	-[A] cd Work/settings/driver
@@ -105,5 +98,11 @@
 		=> disable control(wlan0)
 		
 # python serial
-	- [A] sudo apt-get install python-serial
+	-[A] sudo apt-get install python-serial
+	
+# GStreamer
+	-[A] sudo apt-get install gstreamer1.0-tools
+	-[A] sudo apt-get install gstreamer1.0-bad
+	-[A] sudo apt-get install gstreamer1.0-good
+	
 	
