@@ -1,7 +1,9 @@
 ﻿
 1. start config
 	-[A] sudo raspi-config
-		Hostname -> DEV-0 or DEV-2 or DEV-DRIVER
+		Change User Password -> ????
+		Network Options -> Hostname -> DEV-0W or BACKUP-0W or DEV-DRIVER
+		Network Options -> Wi-fi -> waroid-2.4g -> 12345678 
 		Boot Options -> Desktop / CLI -> Console Autologin
 		Localisation Options -> Change Timezone -> Asia -> Seoul
 		Localisation Options -> Change Keyboard Layout -> Generic 105-key (Intl) PC -> Other -> Korean -> Korean - Korean (101/104 key compatible) - The default for the keyboard layout -> No compose key
@@ -11,28 +13,25 @@
 		Advanced Options -> Expand Filesystem
 		Advanced Options -> Audio -> Force 3.5mm
 	
-2. internet setting
-	-[0] sudo vi /etc/network/interfaces
-		allow-hotplug wlan0
-		iface wlan0 inet dhcp
-		wpa-ssid waroid-2.4g
-		wpa-psk 12345678
-		
-	-[0] sudo reboot
-	
-3. update and upgrade
+2. update and upgrade
 	-[A] sudo apt-get update
 	-[A] sudo apt-get upgrade
-	-[A] sudo apt-get install git wiringpi libasound2 libasound2-dev libsndfile1 libsndfile1-dev libttspico-utils
+	-[A] sudo apt-get install git
 	-[A] mkdir Work && cd Work
 	-[A] git clone https://github.com/waroid/settings.git
+	-[A] cd settings/driver
+	-[0] tar xvzf 8822bu-4.9.59-1047.tar.gz
+	-[A] ./install.sh
+	-[A] sudo reboot
 
-4. update config
+3. update config
 	-[A] cd Work/settings/script
-	-[A] sudo ./config.sh <station|ap>
+	-[A] sudo ./intialize.sh
+	-[A] sudo reboot
+	-[A] sudo ./wifi.sh <station|ap>
 	-[A] sudo reboot
 	
-5. test
+4. test
 	-[A] ifconfig -a
 	-[A] iwconfig
 	-[A] raspistill -o 1.jpg
@@ -40,6 +39,16 @@
 	-[A] rm 1.*
 	-[A] gpio -v
 	-[A] gpio readall
+	
+5 newwaroid install
+	-[A] cd Work
+	-[A] git clone https://github.com/waroid/NewWaroid.git
+	-[A] cd NewWaroid
+	-[A] make
+	-[A] make install
+	-[A] sudo vi /etc/rc.local
+		=> using new waroid server
+		=> set server ip
 	
 # syslog
 	-[A] sudo apt-get install syslog-ng
@@ -83,17 +92,6 @@
 	-[A] sudo make install
 	-[A] sudo vi /etc/rc.local
 		=> using camera test server
-	-[A] sudo vi /etc/network/interfaces
-		=> disable control(wlan0)
-		
-# newwaroid install
-	-[A] cd Work
-	-[A] git clone https://github.com/waroid/NewWaroid.git
-	-[A] cd NewWaroid
-	-[A] make
-	-[A] sudo make install
-	-[A] sudo vi /etc/rc.local
-		=> using new waroid server
 	-[A] sudo vi /etc/network/interfaces
 		=> disable control(wlan0)
 		
