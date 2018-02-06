@@ -26,10 +26,7 @@
 
 3. update config
 	-[A] cd Work/settings/script
-	-[A] sudo ./intialize.sh
-	-[A] sudo reboot
-	-[A] cd Work/settings/script
-	-[A] sudo ./wifi.sh <station|ap>
+	-[A] sudo ./intialize.sh <station|ap>
 	-[A] sudo reboot
 	
 4. test
