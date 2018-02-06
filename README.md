@@ -28,6 +28,7 @@
 	-[A] cd Work/settings/script
 	-[A] sudo ./intialize.sh
 	-[A] sudo reboot
+	-[A] cd Work/settings/script
 	-[A] sudo ./wifi.sh <station|ap>
 	-[A] sudo reboot
 	

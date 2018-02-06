@@ -15,10 +15,11 @@ cp ../0/etc/hostapd/hostapd.conf /etc/hostapd/hostapd.conf
 cp ../0/etc/network/interfaces /etc/network/interfaces
 cp ../0/etc/syslog-ng/syslog-ng.conf /etc/syslog-ng/syslog-ng.conf
 cp ../0/etc/dnsmasq.conf /etc/dnsmasq.conf
-cp ../0/etc/rc.conf /etc/rc.conf
+cp ../0/etc/rc.local /etc/rc.local
 
 touch /var/log/waroid.log
 
+systemctl disable dhcpcd
 systemctl disable bluetooth
 systemctl disable hostapd
 systemctl disable dnsmasq
