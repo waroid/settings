@@ -99,7 +99,10 @@
 	
 # GStreamer
 	-[A] sudo apt-get install gstreamer1.0-tools
-	-[A] sudo apt-get install gstreamer1.0-bad
-	-[A] sudo apt-get install gstreamer1.0-good
+	-[A] sudo apt-get install gstreamer1.0-plugins-bad
+	-[A] sudo apt-get install gstreamer1.0-plugins-good
 	
+# log clear
+	-[A] sudo truncate -s0 /var/log/waroid.log
+	-[A] sudo truncate -s0 /var/log/syslog
 	
